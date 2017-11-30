@@ -11,7 +11,7 @@ pipeline {
         sh 'go test'
       }
     }
-  stage('Deploy') {
+    stage('Deploy') {
     agent none
     steps {
       script {
@@ -19,6 +19,7 @@ pipeline {
         docker.withRegistry('https://register.hub.docker.com', 'Docker') {
            customImage.push("${env.BUILD_NUMBER}")
            customImage.push("latest")
+        }
         }
       }
     }
