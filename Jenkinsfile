@@ -16,6 +16,9 @@ pipeline {
     steps {
       script {
         def customImage = docker.build("nikoleblond/repo_docker_test:${env.BUILD_NUMBER}")
+        docker.withRegistry('https://register.hub.docker.com', 'Docker') {
+           customImage.push("${env.BUILD_NUMBER}")
+           customImage.push("latest")
         }
       }
     }
