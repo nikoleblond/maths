@@ -6,6 +6,7 @@ pipeline {
         docker {
           image 'goland'
         }
+      }
       steps {
         sh 'go test'
       }
