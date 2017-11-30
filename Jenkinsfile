@@ -15,7 +15,7 @@ pipeline {
     agent none
     steps {
       script {
-        def customImage = docker.build("bdubois/maths:${env.BUILD_NUMBER}")
+        def customImage = docker.build("nikoleblond/repo_docker_test:${env.BUILD_NUMBER}")
         }
       }
     }
